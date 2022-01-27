@@ -1,0 +1,58 @@
+.appFrame{
+    position: fixed;
+    height: 600px;
+    width: 900px;
+    background: #ffffff22;
+    top: 50%;
+    left: 50%;
+    transform:translateX(-50%) translateY(-50%); 
+    border-radius: 10px;
+    opacity: 0;
+    display: none;
+    backdrop-filter: blur(10px);
+    overflow:hidden;
+    transition: 0.3s linear transform,0.1s linear opacity,0.05s linear height,0.05s linear width;
+    box-shadow: 0px 0px 10px 5px #00000022;
+    border: 0px solid #dddddddd;
+}
+.appFrame iframe{
+    height: calc(100% - 40px);
+    width: 100%;
+}
+.appFrame .bar{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    background: #dddddddd;
+}
+.appFrame .bar .control{
+    height: 100%;
+    width: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10px;
+}   
+.appFrame .bar .control div{
+    height: 13px;
+    width: 13px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.1s linear transform;
+    box-shadow: 0px 0px 2px 1px #00000022;
+}
+.appFrame .bar .control div:hover{
+    transform: scale(1.2);
+}
+.appFrame .bar .appName{
+    height: 40px;
+    width:calc(100% - 70px);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 70px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}

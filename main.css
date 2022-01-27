@@ -1,0 +1,136 @@
+.main{
+    height: calc(100vh - 120px - 20px);
+    /* background: green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main .left{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main .left div{
+    height:150px;
+    width: 90%;
+    color: white;
+
+}
+.main .left .all{
+    backdrop-filter: blur(10px);
+    background:#ffffff22;
+    margin:10px 0;
+    border-radius: 10px;
+    height: 170px;
+}
+.main .left .time{
+    margin-top: 50px;
+    backdrop-filter: none;
+    background: none;
+}
+
+.main .left .time h1{
+    font-size: 4em;
+    padding:0 15px;
+    font-family: googleL;
+    font-weight: 100;
+
+}
+.main .left .time p{
+    font-size: 1.2em;
+    padding: 0 10px;
+    font-family: googleL;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.main .left .note{
+    overflow: hidden;
+}
+.main .left .all .heading{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.main .left .all .heading img{
+    height: 20px;
+    margin: 0 0 0 10px;
+    border-radius: 4px;
+}
+.main .left .all .headingText{
+    margin-left: 10px;
+}
+.main .left .note textarea{
+    height: 110px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 20px 20px 20px;
+    overflow: auto;
+    resize: none;
+    color: #ffffff;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+.main .left .note textarea::-webkit-scrollbar{
+    width: 0px;
+}
+.main .left .note textarea::placeholder{
+    color: #ffffff88;
+}
+.main .right{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    padding:30px 30px 30px 0;
+}
+.main .right .line{
+    height: 100px;
+    width: 100%;
+    /*margin: 10px 0;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.main .right .line .app{
+    height:100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.1s linear transform,0.05s linear opacity;
+    cursor: pointer;
+
+}
+.main .right .line .app:hover{
+    transform: scale(1.02);
+}
+.main .right .line .app:active{
+    opacity: 0.7;
+    transform: scale(0.97);
+}
+.main .right .line .app p{
+    color: white;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.main .right .line .app .icon{
+    height: 65px;
+    width: 65px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}

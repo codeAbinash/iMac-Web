@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Started</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<script type="text/javascript" src="animation.js"></script>
+<style type="text/css">
+@font-face{
+   src:url("GooglePlayRegular.ttf");
+   font-family:Google;
+}
+*{
+    margin:0;
+    padding:0;
+    font-family: Google;
+    box-sizing:border-box;
+    font-weight:400;
+}
+html {
+    background:var(--main-theme-color);
+}
+body {
+   min-height:100vh;
+   display:flex;
+   justify-content:center;
+   flex-direction: column;
+   align-items:center;
+   background:var(--main-theme-color);
+   color:var(--main-text-color);
+
+}
+#bubble {
+    height:250px;
+    width:250px;
+    background:linear-gradient(20deg, #0078FF 20%,#00C6FF 80%);
+    border-radius:50%;
+    margin-bottom:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+    height:30px;
+    width:30px;
+    margin-top:100vh;
+    transition:margin 3s ease-out, height 1s, width 1s;
+    
+}
+#bubble h1{
+    font-size:3em;
+    opacity:0;
+    transition:opacity 1s;
+}
+#welcome {
+   width:100%;
+   position:absolute;
+   text-align:center;
+   margin-bottom:300px;
+   top:50px;
+   opacity:0;
+   transition:opacity 1s;
+}
+h3{
+    text-align:center;
+    transition:opacity 1s, transform 0.2s;
+    opacity:0;
+}
+h3:active {
+    transform:scale(0.9);
+}
+
+</style>
+</head>
+<body onload="loaded()" onclick="openFullScreen()">
+   <h1 id="welcome" >Welcome to</h1>
+  <div id="bubble">
+    <h1 id="savings" >Savings</h1>
+  </div>
+  <h3 id="start" onclick="openPage('theme.html')">Click here to<br>Start Savings now!</h3>
+  <!--<button>Start</button>-->
+
+<script type="text/javascript">
+function openFullScreen(){
+    var doc = document.documentElement;
+    if(doc.requestFullscreen){
+        doc.requestFullscreen();
+    }
+}
+
+function loaded(){
+   setTimeout(function(){
+       document.getElementById("welcome").style.opacity="1";
+   }, 5000);
+   setTimeout(function(){
+       document.getElementById("savings").style.opacity="1";
+   }, 4000);
+   setTimeout(function(){
+       document.getElementById("start").style.opacity="1";
+   }, 5300);
+
+       document.getElementById("bubble").style.marginTop="0";
+   setTimeout(function(){
+       document.getElementById("bubble").style.height="250px";
+       document.getElementById("bubble").style.width="250px"
+   }, 3100);
+   
+}
+
+</script>
+<script src="darkTheme.js"></script>
+</body>
+</html>

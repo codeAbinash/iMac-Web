@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"  >
+<link rel="stylesheet" href="settingStyle.css">
+<title>Settings</title>
+</head>
+<body onload="loadedPage()">
+<script type="text/javascript" src="jQuery.js"></script>
+<style type="text/css">body {opacity:0;}</style><script type="text/javascript">function loadedPage(){document.body.style.opacity="1";}</script>
+<header>
+   <img id="left" onclick="goBack()" src="back.png">
+   <h1 onclick="openFullScreen()">Settings</h1>
+</header>
+<div id="content" >
+    <div id="options" onclick="openPage ('checkForUpdate.html')">
+      <p>Check for update</p>
+      <div id="noti" >1</div>
+      <img src="back.png" >
+   </div>
+   <div id="options" onclick="openPage('aboutApplication.html')">
+     <p>About application</p>
+     <img src="back.png" >
+   </div>
+   <div id="options" onclick="openPage('aboutDevoloper.html')">
+     <p>About devoloper</p>
+     <img src="back.png" >
+   </div>
+   <a href="mailto: darkrosesoftware@gmail.com?subject=Feedback abou Savings&body=Hello world">
+   <div id="options" >
+     <p>Send feedback</p>
+     <img src="back.png" >
+   </div>
+   </a>
+   
+   <div id="line" ></div>
+   
+   
+   
+   <div id="options" onclick="chengeTheme()">
+     <p>Switch Dark mode</p>
+     <!--img src="back.png" -->
+   </div>
+   
+   
+   <div id="line" ></div>
+      
+      
+   <div id="options" onclick="openPage ('addMoneySettings.html')">
+     <p>Add money settings</p>
+     <img src="back.png" >
+   </div>
+   <div id="options" onclick="openPage('setup.html')">
+     <p>Setup your savings</p>
+     <img src="back.png" >
+   </div>
+   
+   
+   <div id="line" ></div>
+   <div id="options">
+     <p>Set Password (5.0)</p>
+     <img src="back.png" >
+   </div>
+   
+   
+   <div id="line" ></div>
+  
+   <div id="options" >
+     <p>Backup (5.0)</p>
+     <img src="back.png" >
+   </div>
+   <div id="options" >
+     <p>Restore (5.0)</p>
+     <img src="back.png" >
+   </div>
+   <div id="options" onclick="openPage('clearChats.html')">
+     <p>Clear chats</p>
+     <img src="back.png" >
+   </div>
+   <div id="options" onclick="openPage('clearChats.html')">
+     <p>Clear all Savings data</p>
+     <img src="back.png" >
+   </div>
+
+</div>
+<script type="text/javascript">
+function chengeTheme(){
+   if(localStorage.darkModeSavings){
+      applyLightTheme();
+   }else{
+      applyDarkTheme();
+   }
+}
+function applyDarkTheme(){
+   document.body.style.setProperty('--main-theme-color','black');
+   document.body.style.setProperty('--main-text-color', 'white');
+   document.body.style.setProperty('--dark-icons', 'invert(100%)');
+   document.body.style.setProperty('--box-color','#252525');
+   localStorage.darkModeSavings="yes";
+}
+function applyLightTheme(){
+   document.body.style.setProperty('--main-theme-color','white');
+   document.body.style.setProperty('--main-text-color', 'black');
+   document.body.style.setProperty('--dark-icons', 'invert(0%)');
+   document.body.style.setProperty('--box-color','#eee');
+   localStorage.darkModeSavings="";
+} 
+
+if(localStorage.isUpdateAvailable){
+    $("#content #options #noti").css("visibility","visible");
+}
+if(localStorage.isLoggedInSavings){
+}else{
+   openPage('started.html');
+}
+</script>
+<script type="text/javascript" src="darkTheme.js"></script>
+<script type="text/javascript" src="animation.js"></script>
+</body>
+
+</html>

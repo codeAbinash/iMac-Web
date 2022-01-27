@@ -1,0 +1,52 @@
+body .bottom{
+    height: 120px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.bottom .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background: #ffffff22;
+    padding: 15px 15px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+.bottom .container .icon{
+    background: transparent;
+    height: 60px;
+    width: 60px;
+    border-radius: 14px;
+    margin: 0 5px;
+    transition: 0.1s linear transform,0.05s linear opacity;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+.bottom .container .calender{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.bottom .container .calender p{
+    transform:translateY(3px);
+    font-size: 10px;
+    color: red;
+    font-weight: 700;
+}
+.bottom .container .calender h1{
+
+    font-weight: 100;
+}
+.bottom .container .icon:hover{
+    transform: translateY(-10px) scale(1.08);
+}
+.bottom .container .icon:active{
+    opacity: 0.7;
+    transform: scale(1.07);
+}

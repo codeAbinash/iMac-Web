@@ -1,0 +1,106 @@
+#monthDiv #last {
+   text-align:center;
+   font-size:0.9em;
+   padding-bottom:10px;
+   font-weight:400;
+   color:var(--text-color2);
+}
+#monthDiv #graphDiv {
+   height:220px;
+   width:100vw;
+   //background:rgba(255,0,0,0.05);
+}
+#monthDiv #graphDiv #heights {
+   position:absolute;
+   width:100%;
+   text-align:right;
+   line-height:20px;
+   padding:5px 10px;
+   font-size:0.6em;
+   color:var(--text-color2);
+}
+#monthDiv #graphDiv #graph {
+   height:220px;
+   width:100%;
+  // background:rgba(255,0,0,0.1);
+   position:absolute;
+   margin-top:20px;
+   //border-top:0.1px solid var(--text-color2);
+   //border-bottom:0.1px solid var(--text-color2);
+   display:flex;
+   justify-content: space-evenly;
+   align-items:flex-end;
+   padding:0px 30px 0px 10px;
+}
+#monthDiv #graphDiv #graph div{
+   width:8vw;
+   height:0%;
+   //background:linear-gradient(to top, dodgerblue, deepskyblue);
+   background:var(--vr-grad-color);
+   border-top-left-radius:3px;
+   border-top-right-radius:3px;
+}
+#monthDiv #dates {
+   height:20px; width:100%;
+   position:absolute;
+   margin-top:240px;
+   padding:0px 30px 0px 10px;
+   display:flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+#monthDiv #dates p{
+   font-size:0.6em;
+   width:100vw;
+   color:var(--text-color2);
+   text-align:center;
+}
+
+#monthDiv #balancediv {
+   width:100%;
+   text-align:center;
+   padding:30px;
+   margin-top:40px;
+   margin-bottom:10px;
+}
+#monthDiv #balancediv p{
+    font-size:0.8em;
+    color:var(--text-color2);
+}
+#monthDiv #balancediv h1{
+   font-size:4em;
+   font-weight:400;
+}#monthDiv #analysis #calculationDiv{
+   height:auto; width:100%;
+   display:flex;
+   justify-content:space-evenly;
+   align-items:center;
+   z-index:100;
+   
+}
+#monthDiv #analysis #calculationDiv div{
+   width:40vw; height:40vw;
+   background:lime;
+   justify-content:center;
+   display:inherit;
+   align-items:inherit;
+   flex-direction: column;
+   background:var(--box-color);
+   border-radius:10px;
+   z-index:100;
+   
+}
+#monthDiv #analysis #calculationDiv p{
+font-size:1em; 
+}
+#monthDiv #analysis #calculationDiv h1{
+font-size:2.5em;
+font-weight:400;
+padding-bottom:10px;
+}
+#monthDiv #analysis{
+   width:100%;
+   height:calc(100vh - 100px);
+   overflow:scroll;
+   padding-bottom:100px;
+}

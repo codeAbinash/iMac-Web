@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"  >
+<title>Savings 3.0</title>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+*{
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    box-sizing:border-box;
+}
+body {
+    min-height:100vh;
+    background:var(--main-theme-color);
+}
+html {
+    background:var(--main-theme-color);
+}
+iframe {
+    border:none;
+    outline:none;
+    height:100vh;
+    width:100vw;
+    background:var(--main-theme-color);
+}
+</style>
+</head>
+<body>
+<script src="darkTheme.js"></script>
+<script type="text/javascript">
+function applyDarkTheme(){
+	if(localStorage.darkModeSavings){
+	document.body.style.setProperty('--main-theme-color', 'black');
+	}else{
+	document.body.style.setProperty('--main-theme-color','white');
+	}
+    setTimeout(applyDarkTheme, 1000);
+}
+applyDarkTheme();
+</script>
+<iframe src="page.html" id="iframe" >
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"  >
+<link rel="stylesheet" href="settingStyle.css">
+<!--script type="text/javascript" src="https://3qssh5wayseqaj2ta1xrtw-on.drv.tw/Shared/Services/updateSavings.js"></script-->
+<script type="text/javascript" src="updateSavings.js"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+<title>Settings</title>
+<style type="text/css">
+#content #heading {
+   font-family:Google400;
+   font-weight:400;
+   padding:20px;
+   text-align:center;
+}
+#content #savings {
+   text-align:center;
+   font-size:3.5em;
+   font-family:Google400;
+   font-weight:400;
+   margin-top:50px;
+   margin-bottom:50px;
+}
+/*#content #text {
+   padding:20px;
+   color:gray;
+   font-size:0.9em;
+   text-align:justify;
+   text-indent:10px;
+   margin-bottom:30px;
+}
+*/
+#content #updateStatus {
+   text-align:center;
+}
+#content #updateContent {
+   text-align:center;
+   font-family:Google400;
+   font-weight:400;
+   margin-bottom:40px;
+}
+#content #hl{
+   font-size:1em;
+   padding:20px 20px 0px 20px;
+   font-family:Google400;
+}
+#content #hlcnt {
+   padding:20px 20px 0px 20px;
+   font-size:0.8em;
+   text-indent:5px;
+}
+#downloadUpdate {
+   width:90%;
+   padding:10px;
+   position:fixed;
+   left:5%;
+   bottom:10px;
+   background: dodgerblue;
+   padding:15px;
+   border-radius:100px;
+   text-align:center;
+   color:white;
+}
+#content button {
+   border:none;
+   outline:none;
+   padding:15px 25px;
+   background:#1e90ff22;
+   font-weight:500;
+   color: dodgerblue;
+   border-radius:100px;
+   display:flex;
+   margin:auto;
+   font-size:1em;
+}
+#content button:active {
+   background:#1e90ff33;
+}
+a{
+   text-decoration:none;
+   color:white;
+}
+input {
+   display:none;
+}
+#notificationsDiv {
+   position:absolute;
+   padding:12px 20px;
+   border-radius:10px;
+   background:var(--sub-theme-color);
+   box-shadow:var(--box-shadow);
+   transform:translateX(-50%) translateY(-50%);
+   top:85%; left:50%;
+   z-index:10;
+   font-size:0.85em;
+   display:none;
+   text-align:center;
+}
+
+</style>
+</head>
+<body onload="loadedPage()">
+<style type="text/css">body {opacity:0;}</style><script type="text/javascript">function loadedPage(){document.body.style.opacity="1";}</script>
+<header>
+   <img id="left" onclick="goBack()" src="back.png">
+   <h1 onclick="openFullScreen()">Check for update</h1>
+</header>
+	<div id="notificationsDiv"></div>
+<div id="content" >
+   <h1 id="heading" >Dark Rose Software</h1>
+   <h1 id="savings" >Savings<br>4.0</h1>
+   
+   <input type="text" id="linkInput" >
+   
+   <p id="updateStatus" >{{Update Available}}</p>
+   <h1 id="updateContent" > {{Savings 5.1}}</h1>
+   <button onclick="window.location.assign('checkForUpdate.html')">Check for update</button>
+   <div id="serverInfo" >
+      <h1 id="hl" >Highlights</h1>
+      <div id="heightDiv" >
+      </div>
+   </div>
+</div>
+
+<div id="downloadUpdate" onclick="copyText()">Download Update(3.2Mb)</div>
+<script type="text/javascript">
+localStorage.currentVersionCodeSavings = 40;
+if(localStorage.isUpdateAvailable){
+   $("#content #updateStatus").text("Update Available");
+   $("#content #updateContent").text(localStorage.latestVersionNameSavings);
+   $("#content #heightDiv").html(localStorage.heighLightsSavings);
+   $("#downloadUpdate").html(localStorage.downloadSizeSavings);
+   $("#content button").css("display","none");
+   document.getElementById("linkInput").value = localStorage.downloadLinkSavings;
+}else{
+   $("#content #updateStatus").text("This is the latest version.");
+   $("#content #updateContent").text("");
+   $("#content #heightDiv").html("");
+   $("#downloadUpdate").css("display","none");
+   $("#content #hl").css("display","none");
+}
+
+function copyText() {
+  var copyText = document.getElementById("linkInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  //alert("Copied the text: " + copyText.value);
+  notify("Link copied, download it.");
+}
+
+function notify(i){
+   $("#notificationsDiv").text(i);
+   var j = i.length * 150;
+   $("#notificationsDiv").fadeIn(400);
+   setTimeout(function(){$("#notificationsDiv").fadeOut(400);},j);
+}
+</script>
+
+<script type="text/javascript" src="darkTheme.js"></script>
+<script type="text/javascript" src="animation.js"></script>
+</body>
+
+</html>

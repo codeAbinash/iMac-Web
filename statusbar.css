@@ -1,0 +1,6 @@
+.statusbar{
+    height: 30px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: #ffffff22;
+}

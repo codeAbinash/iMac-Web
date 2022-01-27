@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --mainThemeColor:white;
+    --mainTextColor:black;
+}
+body{
+    min-height: 100vh;
+    background: var(--mainThemeColor);
+
+}
+textarea{
+    resize: none;
+    background: transparent;
+    color: var(--mainTextColor);
+}
+header{
+    height: 70px;
+    width: 100%;
+    background: rgb(46, 102, 223);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+header .heading{
+    padding:0 0 0 40px;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+    pointer-events: none;
+    font-weight: normal;
+}
+header #icons{
+    /* background: rgba(255, 0, 0, 0.164); */
+    width: auto;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+header #icons .icon{
+    fill: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30px;
+    margin: 0px 5px;
+    padding: 10px;
+    /* filter: brightness(10000px); */
+    /* pointer-events: visible; */
+}
+header #icons .icon:hover{
+    background: rgba(255,255, 255, 0.1);
+}
+header #icons .icon:active{
+    background: rgba(255,255, 255, 0.2);   
+}
+.container{
+    width: 100%;
+}
+.container #bottom{
+    text-align: center;
+    height: 30px;
+    font-weight:500;
+    font-size: 0.8em;
+    background:rgb(46, 102, 223);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .title{
+    font-size: 3em;
+    border: none;
+    color:var(--mainTextColor);
+    font-weight: normal;
+    width: calc(100% - 160px);
+    padding: 20px;
+    display: flex;
+    margin: 60px auto 30px auto;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.container .title::placeholder{
+    color:#999;
+}
+.noteText{
+    height: 500px;
+    /*background: rgb(253, 253, 229);*/
+    margin: 0 80px;
+    border: none;
+    border-radius: 10px;
+    width: calc(100% - 160px);
+    border: 1.5px solid gray;
+    display: flex;
+    margin: 30px auto;
+    padding: 20px;
+    font-size: 1.5em;
+    text-align: justify;
+    height: 60vh;    
+}
+.container #bottom #leftText, .container #bottom #rightText{
+    position: absolute;
+    white-space: pre;
+    font-weight:100;
+    letter-spacing: 0.3px;
+}
+.container #bottom #leftText{
+    left: 10px;
+}
+.container #bottom #rightText{
+    right: 10px;
+}

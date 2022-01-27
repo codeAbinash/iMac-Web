@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="animation.js"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" href="demo.css">
+<style type="text/css">
+#setupInput:focus, #inputDescription:focus {
+   border:1px solid dodgerblue;
+}
+#settingtext {
+   width:50%;
+   display:inline-block;
+   margin-left:30px;
+   margin-top:20px;
+   font-size:1.2em;
+   font-weight:500;
+}
+#reasonSavings, #targetSavings{
+   width:calc(100vw - 60px);
+   margin-left:30px;
+   border:1px solid gray;
+   outline:none;
+   font-size:1.2em;
+   padding:15px;
+   margin-top:5px;
+   color:var(--main-text-color);
+   background:transparent;
+   border-radius:5px;
+}
+#targetSavings {
+   margin-bottom:30px;
+}
+#reasonSavings:focus, #targetSavings:hover  {
+   border:1px solid dodgerblue;
+}
+#inputdate {
+   border:none;
+   outline:none;
+   background:rgba(150,150,150,0.4);
+   padding:5px;
+   font-weight:500;
+   color:var(--main-text-color);
+   border-radius:5px;
+}
+#bottomdiv .right {
+   opacity:0.3;
+}
+#notificationsDiv {
+   position:absolute;
+   padding:12px 20px;
+   border-radius:10px;
+   background:var(--sub-theme-color);
+   box-shadow:var(--box-shadow);
+   transform:translateX(-50%) translateY(-50%);
+   top:87%; left:50%;
+   z-index:10;
+   font-size:0.85em;
+   display:none;
+   text-align:center;
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup Savings</title>
+</head>
+<body onload="loadedPage()">
+<script src="darkTheme.js"></script>
+  <div id="notificationsDiv" >
+  Hello
+  </div>
+  <h1 class="heading">Setup Savings</h1>
+  <p class="paragraph" >This is some paragraph.<br>This is testing version of this email has been a long time</p>
+  <h2 id="settingtext" >Title of your savings</h2>
+  <input type="text" id="reasonSavings" placeholder="I have to buy a camera." >
+  <h2 id="settingtext" >Amount of Savings</h2>
+  <input type="number" id="targetSavings" placeholder="10000" >
+
+  
+  
+  
+  <h2 id="settingtext" >Date target</h2>
+  <input type="date" id="inputdate" value="2014-02-09">
+  <p class="settingsTextInfo">Dark mode is available!<br>Enjoy the Extreme dark theme. The real dark! Everything is customised for the dark theme.</p>
+
+  
+
+  
+  
+  
+  
+  <br><br><br><br>
+  <div id="fromdiv" onclick="openFullScreen()"> 
+  <p id="by" >from</p>
+  <h1 id="dr" >Dark Rose</h1>
+  <p id="by" >by Abinash Karmkar</p>
+  </div>
+  <br><br><br><br><br><br><br><br>
+  <div id="bottomdiv" >
+    <img class="left" src="back.png" onclick="goBack()">
+    <img class="right" src="back.png" onclick="next()">
+    <p>Savings 4.0</p>
+  </div>
+
+
+
+<script type="text/javascript">
+function loadedPage(){document.body.style.opacity="1";} 
+
+$(document).ready(function(){
+   $("#reasonSavings").keyup(function(){checkInput();if($("#reasonSavings").val().length > 5){$("#reasonSavings").css("border-color","dodgerblue");}else{$("#reasonSavings").css("border-color","red");}});
+   $("#targetSavings").keyup(function(){checkInput();});
+   
+   
+   function checkInput(){
+     var a = $("#reasonSavings").val();
+     var b = $("#targetSavings").val();
+     if(a.length>5 &&  b.length>0){
+         $("#bottomdiv .right").css("opacity","1");
+     }else{
+         $("#bottomdiv .right").css("opacity","0.3");
+     }
+   }
+   checkInput();
+  if(localStorage.dateTargetSavings){$("#inputdate").val(MStoISO(localStorage.dateTargetSavings));
+  }else{
+        localStorage.dateTargetSavings = getPresentDate();
+        $("#inputdate").val(MStoISO(localStorage.dateTargetSavings));
+   }//SAVES DATETARGET IN MILLISECONDS
+  
+
+///VERY IMPORTANT 
+});
+
+function next(){
+   var a = $("#reasonSavings").val();
+   var b = $("#targetSavings").val();
+   if(a.length>5 &&  b.length>0){
+      localStorage.reasonSavings = $("#reasonSavings").val();
+      localStorage.targetSavings = $("#targetSavings").val();
+      var date = new Date($("#inputdate").val());
+      localStorage.dateTargetSavings = date.getTime();
+      if(Number(localStorage.dateTargetSavings) <= getPresentDate()){
+         notify("The date is padded, chose another date.");
+      }else{
+         if(localStorage.isLoggedInSavings){
+            goBack();
+         }else{
+            localStorage.isLoggedInSavings = true;
+            openPage("page.html");
+         }
+      }
+   }else{
+        notify("Write your data correctly.");
+   }
+}
+if(localStorage.reasonSavings){$("#reasonSavings").val(localStorage.reasonSavings)}
+if(localStorage.targetSavings){$("#targetSavings").val(localStorage.targetSavings)}
+if(localStorage.balanceSavings){}else{localStorage.balanceSavings = "0";}
+if(localStorage.whenStartedSavings){}else{localStorage.whenStartedSavings = getPresentDate();}
+if(localStorage.logLengthSavings){}else{localStorage.logLengthSavings = 0;}
+
+
+if(localStorage.isLoggedInSavings){
+   $("#bottomdiv .left").css("visibility","hidden")
+}
+if(localStorage.addMoneyPage){
+}else{
+   localStorage.addMoneyPage = "addMoney.html";
+}
+</script>
+</body>
+</html>

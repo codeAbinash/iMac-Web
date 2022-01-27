@@ -1,0 +1,110 @@
+#weekDiv #analysis{
+   height:calc(100vh - 100px);
+   overflow:scroll;
+}
+#weekDiv #analysis #grid-container {
+   //height:200vh;
+   width:100%;
+   display:grid;
+   grid-template-rows:100px 100px 100px;
+   grid-template-columns:1fr 1fr 1fr;
+   grid-gap:10px;
+   padding:10px;
+   grid-auto-rows:100px;
+}
+#weekDiv #analysis #grid-container div{
+   background:lime;
+   border-radius:10px;
+}
+#weekDiv #analysis #grid-container .grid1{
+   grid-column:1 / span 2;
+   background:var(--hr-grad-color);
+   padding:15px;
+}
+#weekDiv #analysis #grid-container .grid6{
+   grid-column:1 / span 3;
+   background:var(--hr-grad-color);
+   padding:15px;
+}
+#weekDiv #analysis #grid-container .grid1 h1{
+   font-size:1.5em;
+   color:white;
+   font-weight:500;
+}
+#weekDiv #analysis #grid-container .grid6 h1{
+   font-weight:400;
+   font-size:1.5em;
+   color:white;
+}
+#weekDiv #analysis #grid-container .grid2,
+#weekDiv #analysis #grid-container .grid3,
+#weekDiv #analysis #grid-container .grid5
+{
+   background:var(--main-color);
+   display:flex;
+   justify-content: center;
+   align-items:center;
+   flex-wrap:wrap;
+   align-content:center;
+   flex-direction: column;
+   color:white;
+}
+#weekDiv #analysis #grid-container .grid3,
+#weekDiv #analysis #grid-container .grid5
+{
+   background:var(--box-color);
+   color:var(--main-text-color);
+}
+#weekDiv #analysis #grid-container .grid2 h1,
+#weekDiv #analysis #grid-container .grid3 h1,
+#weekDiv #analysis #grid-container .grid5 h1
+{
+   font-size:2em;
+   font-weight:400;
+}
+
+#weekDiv #analysis #grid-container .grid2 p,
+#weekDiv #analysis #grid-container .grid3 p,
+#weekDiv #analysis #grid-container .grid5 p
+{
+   font-size:0.8em;
+}
+#weekDiv #analysis #grid-container .grid4{
+   grid-column:2 / span 2;
+   grid-row:2 / span 2;
+   //background:var(--box-color);
+   background:var(--main-color);
+   padding:15px;
+   color:white;
+}
+#weekDiv #analysis #grid-container .grid4 h1{
+   color:white;
+   font-weight:400;
+   padding-bottom:5px;
+   /*text-shadow: 1px 1px 0px #00000010,
+                2px 2px 0px #00000010,
+                3px 3px 0px #00000010,
+                4px 4px 0px #00000010,
+                5px 5px 0px #00000010,
+                6px 6px 0px #00000010,
+                7px 7px 0px #00000010,
+                8px 8px 0px #00000010,
+                9px 9px 0px #00000010,
+                10px 10px 0px #00000010,
+                11px 11px 0px #00000010,
+                12px 12px 0px #00000010,
+                13px 13px 0px #00000010,
+                14px 14px 0px #00000010,
+                15px 15px 0px #00000010,
+                16px 16px 0px #00000010,
+                17px 17px 0px #00000010,
+                18px 18px 0px #00000010,
+                19px 19px 0px #00000010,
+                20px 20px 0px #00000010;
+   */
+   
+}
+
+#weekDiv #analysis #grid-container .grid4 p{
+   font-size:0.9em;
+}

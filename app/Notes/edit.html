@@ -1,0 +1,96 @@
+<html>
+    <head> 
+        <title>EDIT NOTE</title>
+    </head>
+    <link rel="stylesheet" href="stylesEdit.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header>
+        <span class="heading">Edit Note</span>
+        <div id="icons">
+            <svg class="icon" viewBox="0 0 380.598 380.598" ><g><path d="M322.383,90.222h-2.84l0.436-11.816c0.368-10.004-3.254-19.481-10.201-26.689c-6.946-7.207-16.284-11.176-26.294-11.176   h-48.463V22.934C235.021,10.288,224.732,0,212.087,0h-43.576c-12.646,0-22.933,10.288-22.933,22.934V40.54H97.114   c-10.01,0-19.348,3.97-26.294,11.177c-6.947,7.207-10.569,16.686-10.2,26.688l0.436,11.816h-2.841c-8.284,0-15,6.716-15,15   s6.716,15,15,15h3.948l8.309,225.202c0.728,19.724,16.758,35.174,36.494,35.174h166.667c19.736,0,35.766-15.45,36.494-35.174   l8.309-225.202h3.947c8.284,0,15-6.716,15-15S330.667,90.222,322.383,90.222z M175.578,30h29.443v10.54h-29.443V30z M90.599,77.3   c-0.089-2.41,1.103-4.02,1.821-4.765s2.283-1.995,4.694-1.995h186.37c2.411,0,3.976,1.25,4.694,1.995   c0.718,0.745,1.909,2.355,1.82,4.765l-0.477,12.922H91.076L90.599,77.3z M280.147,344.318c-0.131,3.521-2.992,6.279-6.515,6.279   h-15.714V226.13c0-8.284-6.716-15-15-15s-15,6.716-15,15v124.468h-22.62V226.13c0-8.284-6.716-15-15-15s-15,6.716-15,15v124.468   h-22.621V226.13c0-8.284-6.716-15-15-15s-15,6.716-15,15v124.468h-15.713c-3.523,0-6.385-2.758-6.515-6.279l-8.268-224.097h196.232   L280.147,344.318z"/></g></svg>
+            <svg class="icon" id="save" onclick="window.history.back()" viewBox="0 0 392.62 392.62"><g><rect x="144.866" y="320.897" width="23.505" height="25"/><path d="M309.795,0H266.49H126.131H82.825C37.667,0,0.929,36.738,0.929,81.896v228.828c0,45.158,36.738,81.896,81.896,81.896h58.32 h113.443h55.206c45.157,0,81.896-36.738,81.896-81.896V81.896C391.691,36.738,354.952,0,309.795,0z M266.49,30 c14.354,0,26.03,9.542,26.03,21.27V174.33c0,11.729-11.677,21.271-26.03,21.271H126.131c-14.354,0-26.031-9.542-26.031-21.271 V51.27c0-11.728,11.678-21.27,26.031-21.27H266.49z M141.146,362.62c-6.259,0-11.352-5.092-11.352-11.351v-30.066 c0-6.259,5.093-11.351,11.352-11.351h113.443c6.259,0,11.351,5.092,11.351,11.351v30.066c0,6.259-5.092,11.351-11.351,11.351 H141.146z M361.691,310.724c0,28.616-23.28,51.896-51.896,51.896h-15.452c1.032-3.61,1.597-7.414,1.597-11.351v-30.066 c0-22.801-18.55-41.351-41.351-41.351H141.146c-22.802,0-41.352,18.55-41.352,41.351v30.066c0,3.937,0.565,7.742,1.597,11.351 H82.825c-28.616,0-51.896-23.28-51.896-51.896V81.896c0-25.91,19.087-47.444,43.938-51.285C71.811,36.935,70.1,43.921,70.1,51.27 V174.33c0,28.271,25.136,51.271,56.031,51.271H266.49c30.896,0,56.03-23,56.03-51.271V51.27c0-7.348-1.711-14.334-4.767-20.659 c24.851,3.841,43.938,25.375,43.938,51.285V310.724z"/></g></svg>
+        </div>
+
+    </header>
+    <div class="container">
+        <div id="bottom">
+            <p id="leftText"></p>
+            <p id="rightText"></p>
+            <p>From Dark Rose</p>
+        </div>
+        <textarea class="title" id="noteTitle" oninput="saveTitle(this.value)" placeholder="This is the Title of Your Notes" autofocus></textarea>
+        <textarea class="noteText" id="noteText" oninput="saveNoteText(this.value)">WRITE YOUR NOTE CONTENT HERE</textarea>
+    
+    </div>
+    <script>
+    var root = document.querySelector(':root');
+    function loadTheme() {
+        root.style.setProperty('--mainThemeColor',localStorage.mainThemeColor);
+        root.style.setProperty('--mainTextColor',localStorage.mainTextColor);
+    }
+    loadTheme();
+        function saveTitle(val){
+            localStorage.darkNoteTitle = val;
+            setBottomPart();      
+        }
+        function saveNoteText(val){
+            localStorage.darkNoteText = val;
+            setBottomPart();
+        }
+        var title = document.getElementById("noteTitle");
+        var text =  document.getElementById("noteText");
+        document.getElementById("leftText").innerHTML = "Title : " + localStorage.darkNoteTitle.length + " characters, " + wordCount(localStorage.darkNoteTitle) + " words          Text : " + localStorage.darkNoteText.length + " characters, " + wordCount(localStorage.darkNoteText) + " words";
+        document.getElementById("rightText").innerHTML = localStorage.lastEdited; 
+        title.innerHTML=localStorage.darkNoteTitle;
+        title.focus;
+        text.innerHTML=localStorage.darkNoteText; 
+
+
+        function wordCount(txt) {
+            return txt.split(" ").length;
+        }
+
+        function setBottomPart() {
+            var now = new Date();
+            localStorage.lastEdited = "Last Edited on " + now.getDate() + " " + shortMonth(now.getMonth()) +" "+ now.getFullYear()+ " " + returnTime(now);
+            document.getElementById("leftText").innerHTML = "Title : " + localStorage.darkNoteTitle.length + " characters, " + wordCount(localStorage.darkNoteTitle) + " words          Text : " + localStorage.darkNoteText.length + " characters, " + wordCount(localStorage.darkNoteText) + " words";            
+            document.getElementById("rightText").innerHTML = localStorage.lastEdited;            
+
+        }
+
+        function shortMonth(month) {
+            var monthArray = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+            return monthArray[month];
+        }
+
+       
+        function returnTime(now) {
+            var hour = now.getHours();
+            var minute = checkZero(now.getMinutes());
+            var second = checkZero(now.getSeconds());
+            var ap = returnAp(hour);
+            if (hour > 12) {
+                hour -= 12;                
+            }
+            if (hour == 0) {
+                hour = 12;
+            }
+            return (hour+ ":" + minute + ":" + second + " " + ap);
+        }
+
+        function checkZero(num) {
+            if (num<10) {
+                return  ("0" + num);
+            }else{
+                return num;
+            }
+        }
+        function returnAp(hour){
+            if (hour > 12) {
+               return "PM";
+            }else{
+                return "AM";
+            }
+        }
+    </script>
+</html>

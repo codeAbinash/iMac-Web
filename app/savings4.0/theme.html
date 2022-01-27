@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="animation.js"></script>
+<link rel="stylesheet" href="demo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Theme</title>
+</head>
+<style type="text/css">
+body {
+    transition:0.3s opacity;
+  transition:0.7s background;
+  opacity:0;
+}
+.themesdiv {
+   width:100%;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+}
+.theme {
+   height:300px; width:150px;
+   background:red;
+   display:inline-block;
+   margin:10px;
+   border-radius:10px;
+   transition:0.2s border;
+   border:2px solid transparent;
+}
+#theme1 {
+   background:url("dark.png");
+   background-size:cover;
+}
+#theme2 {
+   background:url("light.png");
+   background-size:cover;
+   border:2px solid dodgerblue;
+}
+#bottomdiv {
+  transition:0.7s background;
+}
+
+
+
+
+
+
+
+
+
+
+
+.switch {
+   position:relative;
+   display:inline-block;
+   height:32px;
+   width:58px;
+   position:absolute;
+   margin-top:-2.5em;
+   right:30px;
+}
+
+.slider {
+   position:absolute;
+   top:0;right:0;
+   left:0;
+   bottom:0;
+   background:rgba(150,150,150,0.4);
+   border-radius:100px;
+   transition:0.2s;
+}
+.switch input {
+    display:none;
+    border-radius:50%;
+}
+.slider:before{
+    position:absolute;
+    content:"";
+    height:24px;
+    width:24px;
+    left:4px;
+    top:4px;bottom:4px;
+    background:white;
+    border-radius:50%;
+   transition:0.2s;
+}
+input:checked + .slider{
+    background: dodgerblue;
+}
+input:checked + .slider:before{
+    transform:translateX(26px);
+}
+.inputtype {
+   display:inline-block;
+   width:60%;
+   margin-left:30px;
+   font-size:1.1em;
+   margin-top:10px;
+   font-weight:500;
+}
+#timeinpit1, #timeinpit2 {
+   border:none;
+   outline:none;
+   background:rgba(150,150,150,0.4);
+   padding:5px;
+   font-weight:500;
+   color:var(--main-text-color);
+   border-radius:5px;
+   width:calc(35% - 30px);
+}
+
+
+</style>
+<body onload="loadedPage()">
+<script src="darkTheme.js"></script>
+
+  <h1 class="heading">Set Theme</h1>
+  <p class="paragraph" >Dark mode is available!<br>Enjoy the Extreme dark theme. The real dark! Everything is customised for the dark theme.</p>
+  <div class="themesdiv" >
+    <div class="theme" id="theme1" onclick="applyDarkTheme()"></div>
+    <div class="theme" id="theme2" onclick="applyLightTheme()"></div>
+  </div>
+  
+  
+  <h1 class="settingsText"><br>Automatic Dark Mode</h1>
+  
+  
+
+  <label class="switch" >
+    <input id="input" type="checkbox" oninput="inputed()">
+    <span class="slider" ></span>
+  </label>
+
+    <p class="settingsTextInfo" style="margin-top:-10px" >Dark mode is available!<br>Enjoy the Extreme dark theme. The real dark! Everything is customised for the dark theme.</p>
+    
+    <p class="inputtype" >Start Time</p><input type="time" id="timeinpit1" value="07:00" >
+    <p class="inputtype" >End Time</p><input type="time" id="timeinpit2" value="16:00" >
+  
+  
+  
+ <br><br><br><br>
+  <div id="fromdiv" onclick="openFullScreen()"> 
+  <p id="by" >from</p>
+  <h1 id="dr" >Dark Rose</h1>
+  <p id="by" >by Abinash Karmkar</p>
+  </div>
+ <br><br><br><br><br><br><br><br>
+ 
+ <br>
+  <div id="bottomdiv" >
+    <img class="left" src="back.png" onclick="goBack()">
+    <img class="right" src="back.png" onclick="openPage('setup.html')" id="forword" >
+    <p id="bottominfo" >Some information</p>
+  </div>
+  
+<script type="text/javascript">
+function applyDarkTheme(){
+   document.getElementById("theme1").style.borderColor="dodgerblue";
+   document.getElementById("theme2").style.borderColor="transparent";
+   document.getElementById("bottominfo").innerHTML="Dark Theme";
+   document.body.style.setProperty('--main-theme-color','black');
+   document.body.style.setProperty('--main-text-color', 'white');
+   document.body.style.setProperty('--dark-icons', 'invert(100%)');
+   localStorage.darkModeSavings="yes";
+}
+function applyLightTheme(){
+   document.getElementById("theme2").style.borderColor="dodgerblue";
+   document.getElementById("theme1").style.borderColor="transparent"
+   document.getElementById("bottominfo").innerHTML="Light Theme"
+   document.body.style.setProperty('--main-theme-color','white');
+   document.body.style.setProperty('--main-text-color', 'black');
+   document.body.style.setProperty('--dark-icons', 'invert(0%)');
+   localStorage.darkModeSavings="";
+} 
+checkTheme();
+function checkTheme(){
+if(localStorage.darkModeSavings){
+  applyDarkTheme();
+}else{
+  applyLightTheme();
+}
+}
+
+function loadedPage(){document.body.style.opacity="1";} 
+
+</script>
+
+<script type="text/javascript" src="fullscreen.js"></script>
+</body>
+</html>

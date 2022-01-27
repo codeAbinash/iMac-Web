@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
+    <title>iMac Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="statusbar.css">
+    <link rel="stylesheet" href="bottom.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="mouse.css">
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="openLink.js"></script>
+    <script src="time.js"></script>
+    <script src="common.js"></script>
+    <script src="notes.js"></script>
+    <script src="app.js"></script>
+    <script src="mouseMove.js"></script>
+</head>
+<!-- <body onmousemove="mouseMoved(event)"> -->
+<body>
+    <div class="statusbar"></div>
+    <div class="main">
+        <div class="left">
+            <div class="time">
+                <h1>9:44</h1>
+                <p>Tuesday, November 19</p>
+            </div>
+            <div class="all">
+                <div class="heading">
+                    <img src="icon/weather.png" alt="N">
+                    <p class="headingText">Current Weather</p>
+                </div>
+            </div>
+            <div class="all">
+                <div class="heading">
+                    <img src="icon/cloclFull.png" alt="C">
+                    <p class="headingText">Timer</p>
+                </div>
+            </div>
+            <div class="all">
+
+            </div>
+            <div class="all note" >
+                <div class="heading">
+                    <img src="icon/notes.png" alt="N">
+                    <p class="headingText">QUICK NOTES</p>
+                </div>
+                <textarea placeholder="Take a Note Here..." oninput="editNote(this.value)"></textarea>
+            </div>
+            
+        </div>
+        <div class="right">
+            <div class="line">
+                <div class="app" onclick='openPageLink("https://web.whatsapp.com/")'>
+                    <div class="icon" style="background-image: url('icon/whatsapp.png');"></div>
+                    <p>Whatsapp</p>
+                </div>
+                <div class="app" onclick='openPageLink("https://www.facebook.com/messages/t/")'>
+                    <div class="icon" style="background-image: url('icon/messenger.png');"></div>
+                    <p>Messenger</p>
+                </div>
+                <div class="app" onclick="openPageLink('https:www.w3schools.com')">
+                    <div class="icon" style="background-image:url('icon/w3schools.png');"></div>
+                    <p>W3schools</p>
+                </div>
+
+                <div class="app" onclick='openPageLink("https://play.google.com/store/apps")'>
+                    <div class="icon" style="background-image: url('icon/appsStore.png');"></div>
+                    <p>App Store</p>
+                </div>
+                <div class="app" onclick='openPageLink("https://facebook.com/")'>
+                    <div class="icon" style="background-image: url('icon/facebook.png');"></div>
+                    <p>Facebook</p>
+                </div>
+                <div class="app" onclick='openPageLink("https://web.whatsapp.com/")'>
+                    <div class="icon" style="background-image: url('icon/whatsapp.png');"></div>
+                    <p>Whatsapp</p>
+                </div>
+                <div class="app" onclick='openPageLink("https://www.facebook.com/messages/t/")'>
+                    <div class="icon" style="background-image: url('icon/messenger.png');"></div>
+                    <p>Messenger</p>
+                </div>
+                <div class="app" onclick="openPageLink('https:www.w3schools.com')">
+                    <div class="icon" style="background-image:url('icon/w3schools.png');"></div>
+                    <p>W3schools</p>
+                </div>
+
+                <div class="app" onclick='openPageLink("https://play.google.com/store/apps")'>
+                    <div class="icon" style="background-image: url('icon/appsStore.png');"></div>
+                    <p>App Store</p>
+                </div>
+
+            </div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="container">
+
+            <div class="icon" style="background-image:url('icon/settings.png');" onclick='openApp("app/settings.html","Settings","600px","900px")'></div>
+            <div class="icon" style="background-image:url('icon/chrome.png');" onclick='openApp("icon/index.html","2021","800px","1200px")'></div>
+            <div class="icon calender" style="background: white;"  onclick='openApp("app/calender/index.html","Calendar","600px","900px")'>
+                <p>Sunday</p>
+                <h1>21</h1>
+            </div>
+            <div class="icon" style="background-image:url('icon/notes.png');" onclick='openApp("app/Notes/index.html","Notes","600px","900px")'></div>
+            <div class="icon" style="background-image:url('icon/study.png');" onclick='openApp("app/Study/index.html","Study","850px","400px")'></div>
+            <div class="icon" style="background-image:url('icon/savings.png');" onclick='openApp("app/savings4.0/index.html","Savings","850px","400px")'></div>
+            <div class="icon" style="background-image:url('icon/calculator.png');" onclick='openApp("app/Calculator/index.html","Savings","850px","400px")'></div>
+            <div class="icon" style="background-image:url('icon/system.png');" onclick='openFullscreen()'></div>
+
+        </div>
+    </div>
+
+    <div class="appFrame" id="theApp">
+        <div class="bar">
+            <div class="control">
+                <div class="red" style="background-color: red;" onclick="closeApp()"></div>
+                <div class="yellow" style="background-color: yellow;" onclick="closeApp()"></div>
+                <div class="green" style="background-color: lime;" onclick="appFullScreen()"></div>
+            </div>
+            <div class="appName">Settings</div>
+        </div>
+        <iframe src="app/settings.html" frameborder="0" id="appWindowIframe"></iframe>
+    </div>
+
+</body>
+</html>

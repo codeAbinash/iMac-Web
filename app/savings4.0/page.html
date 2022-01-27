@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Savings</title>
+<link rel="stylesheet" href="mainStyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<script type="text/javascript">
+if(localStorage.isLoggedInSavings){
+}else{
+   window.location.assign("starts.html");
+}
+function loadedPage(){document.body.style.opacity="1";} 
+/*localStorage.balanceSavings ="";
+localStorage.logDateSavings="";
+localStorage.logMoneySavings="";
+localStorage.logTextSavings="";
+localStorage.logLengthSavings="";
+*/
+</script>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="animation.js"></script>
+<link rel="stylesheet" href="day.css">
+<link rel="stylesheet" href="analysis.css">
+<style type="text/css">
+body {
+opacity:0;
+transition:0.2s opacity;
+}
+</style>
+
+</head>
+<body onload="loadedPage()">
+   <p id="floating" onclick="openPage(localStorage.addMoneyPage)">+    Add money</p>
+   <p id="floating2" onclick="openPage(localStorage.addMoneyPage)">+    Add money</p>
+   <div id="options" >
+     <p onclick="openThemesDiv()">Change Theme</p>
+     <p onclick="openPage('settings.html')">Settings</p>
+   </div>
+   
+   <div id="fullscreendiv" ></div>
+   
+   <header>
+      <h1>Savings</h1>
+      <img src="more.png" >
+   </header>
+   
+   <div id="header2" >
+      <p id="op1" class="day" >Balance</p>
+      <p id="op1" class="week" >Analysis</p>
+      <p id="op1" class="month" >Graph</p>
+      <p id="op1" class="year" >Notes</p>
+   </div>
+   
+   
+   
+   <div id="content" >
+      <div id="yearDiv" >
+      <div id="notes" >
+      <link rel="stylesheet" href="notes.css">
+      
+      <div id="notesHeader" >
+         <p id="date" >12th September 2020 12:30pm</p>
+         <img id="edit" src="edit.png" onclick="openPage('editNote.html')">
+         <img id="del" src="delete.png" >
+      </div>
+      
+      <div id="note" >
+         <h1 style="color: dodgerblue" >Welcome to notes</h1>
+         <br>
+         Html based Notes, Supports html css styling, like... <br> This is <span style="color:brown" >Brown Text.</span><br><br>
+         <span style="color:white; background-color:dodgerblue; border; border-radius:5px; padding:5px 10px;" >Style Your notes As you want</span><br><br>
+         <h1><span style="color:red;font-family: courier;" >And Like this, Whatever you want.</span></h1>
+      </div>
+      
+      </div>
+      </div>
+      <script type="text/javascript">
+      if(localStorage.noteSavings){
+      $("#content #yearDiv #notes #note").html(localStorage.noteSavings);
+      var date = new Date(Number(localStorage.notesDateSavings));
+      $("#notes #notesHeader p").html(function(){
+      return getDateTh(date.getDate()) + " " + getFullMonth(date.getMonth()) + " " + date.getFullYear() + " " + getTimeAP(date);
+      });
+      }else{
+      localStorage.noteSavings = '<h1 style="color: dodgerblue" >Welcome to notes</h1><br>Html based Notes, Supports html css styling, like... <br> This is <span style="color:brown" >Brown Text.</span><br><br><span style="color:white; background-color:dodgerblue; border; border-radius:5px; padding:5px 10px;" >Style Your notes As you want</span><br><br><h1><span style="color:red;font-family: courier;" >And Like this, Whatever you want.</span></h1>';
+      }
+      </script>
+
+
+
+      <div id="monthDiv" >
+      <div id="analysis" >
+      <link rel="stylesheet" href="month.css">
+      
+         <h1 id="last" >Last 10 savings</h1>
+         
+         <div id="graphDiv" >
+         
+            <p id="heights" >1000</p>
+            <div id="graph" >
+				<div id="part1" ></div>
+				<div id="part2" ></div>
+				<div id="part3" ></div>
+				<div id="part4" ></div>
+				<div id="part5" ></div>
+				<div id="part6" ></div>
+				<div id="part7" ></div>
+				<div id="part8" ></div>
+				<div id="part9" ></div>
+				<div id="part10" ></div>
+            </div>
+            <div id="dates" >
+               <p id="part1" >9/8</p>
+               <p id="part2" >9/8</p>
+               <p id="part3" >9/8</p>
+               <p id="part4" >9/8</p>
+               <p id="part5" >9/8</p>
+               <p id="part6" >9/8</p>
+               <p id="part7" >9/8</p>
+               <p id="part8" >9/8</p>
+               <p id="part9" >9/8</p>
+               <p id="part10" >9/8</p>
+            </div>
+         </div>
+         
+         <div id="balancediv" >
+            <p>Total</p>
+            <h1>7628</h1>
+            <p id="target" >in last 10 Savings</p>
+         </div>
+         
+         <div id="calculationDiv" >
+            <div id="left" >
+                <p>Total added</p>
+                <h1>7628</h1>
+            </div>
+            <div id="right" >
+               <p>Total taken</p>
+               <h1 style="color:red" >7628</h1>
+            </div>
+         </div>
+      </div>
+      </div>
+      
+      
+
+      <div id="weekDiv" >
+      <div id="analysis" >
+      <div id="grid-container" >
+      
+          <div class="grids grid1" >
+              <h1>Analysis is of your Savings</h1>
+          </div>
+          
+          <div class="grids grid2" >
+              <h1>{{80%}}</h1>
+              <p>Completed</p>
+          </div>
+          
+          <div class="grids grid3" >
+             <p>Expectation</p>
+             <h1>30</h1>
+             <p>in days</p>
+          </div>
+          
+          <div class="grids grid4" >
+             <h1>Your saving is going fine.</h1>
+             <p>Your Saving will be finished {{day}} days before than your target date. You're saving more 30 of your daily target. Carry on. Good Luck.</p>
+          </div>
+          
+          <div class="grids grid5" >
+             <p>Ends in</p>
+             <h1>46</h1>
+             <p>days</p>
+          </div>
+          
+          <div class="grids grid6" >
+             <h1>Other analysis will come in SAVINGS version 5.0</h1>
+          </div>
+      </div>
+      </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div id="dayDiv" >
+      <div id="daySmall" >
+          <h1 id="reason" >{{I have to buy a new camera}}</h1>
+          
+          <div id="balancediv">
+             <p>Your Balance</p>
+             <h1>{{Balance}}</h1>
+             <p id="target" >{{Target}}</p>
+          </div>
+          
+          <div id="sliderContainer" >
+             <div id="slider" ></div>
+          </div>
+          <p id="completed" >{{25% Complete}}</p>
+          <p id="needed" > {{Need 2344}}</p>
+             
+          <div id="boxDiv" >
+              <div class="smallbox line1" id="bx1" >
+                 <p id="smd1t1" >Started on</p>
+                 <h1 id="smd1t2" >{{21}}</h1>
+                 <p id="smd1t2" >{{start date}}</p>
+              </div>
+             <div class="smallbox line1" id="bx2" >
+                <p id="smd1t1" >Target</p>
+                <h1 id="smd1t2" >{{21}}</h1>
+                <p id="smd1t2" >Per day</p>
+             </div>
+             <div class="smallbox line1" id="bx3" >
+                <p id="smd1t1" >Date target</p>
+                <h1 id="smd1t2" >{{25th}}</h1>
+                <p id="smd1t2" >{{Sep 2020}}</p>
+             </div>
+             <div class="smallbox line2" id="bx4" >
+                 <p id="smd1t1" >You're Saving</p>
+                 <h1 id="smd1t2" >{{perDay}}</h1>
+                 <p id="smd1t2" >Per day</p>
+             </div>
+             <div class="smallbox line2" id="bx5" >
+                 <p id="smd1t1" >Need per day to</p>
+                 <h1 id="smd1t2" >21</h1>
+                 <p id="smd1t2" >Complete in date</p>
+             </div>
+             <div class="smallbox line2" id="bx6" >
+                <p>Will end on</p>
+                <h1>821</h1>
+                <p >September</p>
+             </div>
+             <!--div class="smallbox line2" id="smd1" >
+                <p id="smd1t1" >Started</p>
+                <h1 id="smd1t2" >251</h1>
+                <p id="smd1t2" >September</p>
+             </div>
+             <div class="smallbox line2" id="smd1" >
+                <p id="smd1t1" >Started</p>
+                <h1 id="smd1t2" >21</h1>
+                <p id="smd1t2" >September</p>
+             </div>
+             <div class="smallbox line2" id="smd1" >
+                <p id="smd1t1" >Started</p>
+                <h1 id="smd1t2" >21</h1>
+                <p id="smd1t2" >September</p>
+             </div>
+             <div class="smallbox line2" id="smd1" >
+                <p id="smd1t1" >Started</p>
+                <h1 id="smd1t2" >21</h1>
+                <p id="smd1t2" >September</p>
+             </div>
+             <div class="smallbox line2" id="smd1" >
+                <p id="smd1t1" >Started</p>
+                <h1 id="smd1t2" >21</h1>
+                <p id="smd1t2" >September</p>
+             </div>
+             <div class="smallbox line2" id="smd1" onclick="openPage('addMoney.html')">
+                <p id="smd1t1" >Add</p>
+                <h1 id="smd1t2" >+</h1>
+                <p id="smd1t2" >money</p-->
+             </div>
+             <p id="extraNoti" >Will end in {{23} days instead of {40} days.</p>
+          </div>
+      </div>
+      </div>
+<div id="themeDiv" >
+ <h1>Customize your theme</h1><img src="cross.png" onclick="closeThemesDiv()">
+  <div id="themes" >
+    <div style="background:linear-gradient(deepskyblue,dodgerblue);" onclick="changeGrad('#00bfff', '#1e90ff')"></div>
+    <div style="background:linear-gradient(#ffc400,#ff7e29);" onclick="changeGrad('#ffc400', '#ff7e29')"></div>
+    <div style="background:linear-gradient(#1ac9ff,#12e5b8);" onclick="changeGrad('#1ac9ff', '#12e5b8')"></div>
+    <div style="background:linear-gradient(#fc8880,#ff645e);" onclick="changeGrad('#fc8880', '#ff645e')"></div>
+    <div style="background:#1e90ff" onclick="changeTheme(this.style)"></div>
+    
+    <div style="background:linear-gradient(dodgerblue,deepskyblue);" onclick="changeGrad('#1e90ff', '#00bfff')"></div>
+    <div style="background:linear-gradient(#ff7e29,#ffc400);" onclick="changeGrad('#ff7e29', '#ffc400')"></div>
+    <div style="background:linear-gradient(#12e5b8,#1ac9ff);" onclick="changeGrad('#12e5b8', '#1ac9ff')"></div>
+    <div style="background:linear-gradient(#ff645e,#fc8880);" onclick="changeGrad('#ff645e', '#fc8880')"></div>
+    <div style="background:#0084ff" onclick="changeTheme(this.style)"></div>
+    
+    
+    <div style="background:#57bfc7" onclick="changeTheme(this.style)"></div>
+    <div style="background:#ffc400" onclick="changeTheme(this.style)"></div>
+    <div style="background:#fa3d4d" onclick="changeTheme(this.style)"></div>
+    <div style="background:#d699bd" onclick="changeTheme(this.style)"></div>
+    <div style="background:#17e317" onclick="changeTheme(this.style)"></div>
+    <div style="background:#ff7e29" onclick="changeTheme(this.style)"></div>
+    <div style="background:#e69495" onclick="changeTheme(this.style)"></div>
+    <div style="background:#7847ff" onclick="changeTheme(this.style)"></div>
+    <div style="background:#38d2f5" onclick="changeTheme(this.style)"></div>
+    <div style="background:#ff5ca0" onclick="changeTheme(this.style)"></div>
+
+
+  </div>
+</div>
+<script type="text/javascript" src="analysis.js"></script>
+<script type="text/javascript" src="month.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="day.js"></script>
+<script type="text/javascript" src="darkTheme.js"></script>
+</body>
+</html>

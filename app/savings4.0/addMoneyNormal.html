@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Add Money</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+function loadedPage(){
+   document.body.style.opacity="1";
+} 
+</script>
+<script type="text/javascript" src="animation.js"></script>
+</head>
+<body onload="loadedPage()">
+	<header>
+	   <img id="left" onclick="goBack()" src="back.png">
+	   <h1 onclick="openFullScreen()">Add Money</h1>
+       <img src="more.png" id="right" src="more.png">
+	</header>
+	<!--div id="options" >
+    	<p id="heading" >Theme</p>
+    	<div id="colorsdiv" >
+           <div style="background:linear-gradient(to top, #38d2f5,#ff5ca0)" onclick="changeChatTheme(this.style)"></div>
+           <div style="background:linear-gradient(#0084ff,#fa3d4d)" onclick="changeChatTheme(this.style)"></div>
+           <div style="background:linear-gradient(#0084ff,#fa3d4d)" onclick="changeChatTheme(this.style)"></div>
+           
+           -->
+<div id="options" >
+           <p onclick="openThemesDiv()">Change Theme</p>
+           <p onclick="openPage('clearChats.html')">Clear Chats</p>
+</div>
+<div id="themeDiv" >
+   <h1>Customize your chat</h1><img src="cross.png" onclick="closeThemesDiv()">
+   <div id="themes" >
+     <div style="background:linear-gradient(deepskyblue,dodgerblue);" onclick="changeChatTheme(this.style)"></div>
+     <div style="background:linear-gradient(#ffc400,#ff7e29);" onclick="changeChatTheme(this.style)"></div>
+      <div style="background:linear-gradient(#1ac9ff,#12e5b8);" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:linear-gradient(#fc8880,#ff645e);" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:red" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:linear-gradient(dodgerblue,deepskyblue);" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:linear-gradient(#ff7e29,#ffc400);" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:linear-gradient(#12e5b8,#1ac9ff);" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:linear-gradient(#ff645e,#fc8880);" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#0084ff" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#57bfc7" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#ffc400" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#fa3d4d" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#d699bd" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#17e317" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#ff7e29" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#e69495" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#7847ff" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#38d2f5" onclick="changeChatTheme(this.style)"></div>
+       <div style="background:#ff5ca0" onclick="changeChatTheme(this.style)"></div> 
+     </div>
+</div>
+           
+           
+           
+           
+           
+           
+           <script type="text/javascript">
+           
+              function changeChatTheme(i){
+                 document.body.style.setProperty("--chat-theme-color",i.background);
+                localStorage.chatsThemeColorSavings = i.background;
+              }
+           
+           function openThemesDiv(){
+           $("#themeDiv").animate({
+           bottom:'8px',
+           },200).show();
+           }
+           
+           $("#themeDiv").click(function(){
+           $("#themeDiv").animate({
+           bottom:'-100vh',
+           },200).hide(200);
+           });
+           
+           </script>
+	    
+	    
+	
+	
+	<div id="fullscreendiv" ></div>
+	<div id="notificationsDiv" ></div>
+	<div id="notificationsDiv2" ></div>
+	
+	
+	<div id="contentDiv" >
+	   <img src="cover.png" id="cover">
+       <h3 id="title" >Add your money here</h3>
+       <h6 id="description" >Hi I'm the devoloper of this application. Don't worry, I'll not collect your data. Privacy matters. No worry only enjoy.<br>Write number first and then write anything. You can also write only number. Click the indigator in bottom left to add or take money.</h6>
+       
+       <div id="msgDivr" onclick="notify('This is an example only, this will not affect your savings. This Cannot be deleted.')">
+          <p style="border-radius:calc(0.87em + 10px)">500 this is an example.</p>
+       </div>
+
+       <div id="msgDivl" onclick="notify('This is an example only, this will not affect your savings. This Cannot be deleted.')">
+          <p id="this" style="border-radius:calc(0.87em + 10px)" >This is an example too</p>
+       </div>
+
+
+    </div>
+    <div id="writeDiv" >
+       <div id="indc" >
+         <div id="indicatorLight" ></div>
+       </div>
+       <input type="text" placeholder="write money here..." id="input" autocomplete="off" >
+       <div id="send" >
+          <img src="send.png" >
+       </div>
+    </div>
+<style type="text/css">
+#themeDiv {
+  position:fixed;
+  height:350px;
+  width:calc(100vw - 16px);
+  margin-left:8px;
+  background:var(--sub-theme-color);
+  bottom:8px;
+  z-index:100;
+  border-radius:20px;
+  box-shadow:0 0 0px 1000vh rgba(0,0,0,0.6);
+  display:none;
+  bottom:-100vh;
+}
+#themeDiv h1{
+  font-size:1em;
+  padding:20px;
+  font-weight:400;
+}
+#themeDiv img {
+   position:absolute;
+   width:27px;
+   padding:5px;
+   top:15px;
+   right:15px;
+   background:rgba(150,150,150,0.15);
+   border-radius:50%;
+   filter:var(--dark-icons);
+   transition:0.2s top;
+}
+#themeDiv #themes {
+   height:260px;
+   width:100%;
+   display:flex;
+   justify-content:space-evenly;
+   align-items:space-evenly;
+   flex-wrap:wrap;
+   overflow:auto;
+}
+#themeDiv #themes div{
+   height:50px;
+   width:50px;
+   border-radius:50%;
+   margin:7px;
+}
+#themeDiv #themes div:hover{
+   box-shadow:0px 0px 0px 10px rgba(150,150,150,0.2);
+}
+#loadingDiv {
+   height:100vh;
+   width:100vw;
+   position:fixed;
+   top:0;left:0;
+   background:var(--main-theme-color);
+   z-index:100000;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   color:var(--main-text-color);
+}
+@font-face{
+   src:url("GooglePlayRegular.ttf");
+   font-family:Google;
+}
+@font-face{
+   src:url("GoogleSans500.ttf");
+   font-family:Google500;
+}
+*{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+   font-family:Google;
+   scroll-behavior:smooth;
+}
+html{
+  scroll-behavior:smooth;
+}
+body {
+   opacity:0;
+   transition:0.3s opacity;
+   height:100vh;
+   color:var(--main-text-color);
+   background:var(--main-theme-color);
+   overflow:hidden;
+}
+#notificationsDiv,#notificationsDiv2  {
+   position:absolute;
+   padding:12px 20px;
+   border-radius:10px;
+   background:var(--sub-theme-color);
+   box-shadow:var(--box-shadow);
+   transform:translateX(-50%) translateY(-50%);
+   top:15%; left:50%;
+   z-index:10;
+   font-size:0.85em;
+   display:none;
+   text-align:center;
+}
+#notificationsDiv {
+   top:15%;
+}
+#notificationsDiv2 {
+   top:85%;
+}
+header {
+   height:55px;
+   width:100%;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   position:fixed;
+   top:0;
+}
+header h1{
+   font-size:1.1em;
+   font-weight:500;
+   color:var(--main-text-color);
+   font-family:Google500;
+}
+header img:active {
+   opacity:0.5;
+}
+header #left{
+   position:absolute;
+   left:5px;
+   height:45px;
+   filter:var(--dark-icons);
+}
+header #right{
+   position:absolute;
+   right:5px;
+   height:45px;
+   filter:var(--dark-icons);
+}
+#options {
+   position:absolute;
+   top:10px;
+   right:10px;
+   height:auto;
+   width:200px;
+   background:var(--sub-theme-color);
+   z-index:10;
+   display:none;
+   border-radius:5px;
+   box-shadow:var(--box-shadow);
+   max-height:400px;
+}
+#options p{
+   width:200px;
+   padding:15px 0px 15px 20px;
+   font-size:0.9em;
+}
+#options p:active {
+   background:rgba(150,150,150,0.2);
+} 
+#fullscreendiv {
+    position:fixed;
+    top:0; right:0;
+    min-height:100vh;
+    width:100vw;
+    display:none;
+    z-index:9;
+    background:rgba(0,0,0,0.05);
+}
+#msgDivr {
+   width:100%;
+   background:lime;
+   padding:10px;
+   display:flex;
+   justify-content: flex-end;
+   align-items:center;
+}
+
+#contentDiv {
+   margin-top:55px;
+   height:calc(100vh - 55px - 50px);
+   position:fixed;
+   width:100%;
+   overflow:auto;
+}
+#contentDiv div{
+   width:100%;
+   background:transparent;
+   padding:1px 17px;
+   display:flex;
+   align-items:center;
+   //border:1px solid black;
+}
+#contentDiv div:last-of-type {
+   margin-bottom:50px;
+}
+#contentDiv #msgDivl {
+   justify-content: flex-start;
+}
+#contentDiv #msgDivr {
+   justify-content:flex-end;
+}
+#contentDiv #msgDivl p{
+   background:var(--sub-theme-color2);
+   color:var(--main-text-color);
+}
+#contentDiv #msgDivr p{
+   color:white;
+   background:var(--chat-theme-color);
+}
+#contentDiv p{
+   max-width:70%;
+   padding:12px 15px;
+   border-radius:calc(0.87em + 10px);
+   font-size:0.87em;
+   line-height:1.3em;
+   word-break:break-all; 
+}
+#contentDiv #cover {
+   width:40%;
+   display:flex;
+   margin:auto;
+   border-radius:50%;
+   margin-top:50px;
+}
+#contentDiv #title {
+   text-align:center;
+   margin-top:10px;
+}
+#contentDiv #description {
+   text-align:center;
+   font-size:0.7em;
+   font-weight:400;
+   padding:0px 20px 50px 20px;
+   color:gray;
+}
+#writeDiv {
+   position:fixed;
+   bottom:0;
+   height:50px;
+   width:100%;
+   background:var(--main-theme-color);
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+}
+#writeDiv #indc {
+   height:50px;
+   width: 50px;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+}
+#writeDiv #indc #indicatorLight {
+   height:25px;
+   width:25px;
+   background: dodgerblue;
+   border-radius:50%;
+   transition:0.1s transform;
+}
+#writeDiv #indc:active #indicatorLight{
+   transform:scale(0.8);
+}
+#writeDiv #send {
+   height:50px;
+   width:50px;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   transition:0.2s opacity;
+}
+#writeDiv #send img{
+   height:28px;
+   width:28px;
+   filter:var(--dark-icons);
+}
+#writeDiv input {
+   padding:10px 16px;
+   width:calc(100vw - 100px);
+   border-radius:100px;
+   border:none;
+   outline:none;
+   background:#eee;
+   background:var(--sub-theme-color2);
+   color:var(--main-text-color);
+   caret-color:var(--chat-theme-color)
+}
+
+#msgDivr #time {
+   font-weight:100;
+   font-size:0.5em;
+   padding:5px;
+   color:gray;
+   text-align:right;
+}
+#msgDivl #time{
+  font-weight:100;
+  font-size:0.5em;
+  padding:5px;
+  color:gray;
+  text-align:left;
+}
+#no5{
+   color:blue;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#input").keyup(function(){
+   checkInput();
+});
+
+
+function checkInput(){
+   if(!(isNaN(parseInt($("#input").val().trim())))){
+      $("#send").css("opacity","0.7");
+      return true;
+  }else{
+      $("#send").css("opacity","0.2");
+      return false;
+   }
+}
+checkInput();
+
+
+localStorage.blueORred = 1;
+
+$("#indc").click(function(){
+   scrollDown();
+   localStorage.blueORred = Number(localStorage.blueORred) * (-1);
+   $("#input").focus();
+   if(Number(localStorage.blueORred) == 1){
+      $("#indicatorLight").css("backgroundColor","dodgerblue")
+   }
+   if(Number(localStorage.blueORred) == -1){
+      $("#indicatorLight").css("backgroundColor","red")
+   }
+});
+
+$("#input").click(function(){
+   scrollDown();
+});
+
+if(localStorage.logTextSavings){}else{ localStorage.logTextSavings="TEXTS--c&h--"}
+if(localStorage.logDateSavings){}else{ localStorage.logDateSavings="DATES--c&h--"}
+if(localStorage.logStatusSavings){}else{ localStorage.logStatusSavings="STATUS--c&h--"}
+
+if(localStorage.chatsThemeColorSavings){
+    document.body.style.setProperty('--chat-theme-color',localStorage.chatsThemeColorSavings);
+}else{
+    document.body.style.setProperty('--chat-theme-color','red');
+}
+
+var texts = localStorage.logTextSavings.split("--c&h--");
+var dates = localStorage.logDateSavings.split("--c&h--");
+var status = localStorage.logStatusSavings.split("--c&h--");
+
+
+for(i=1;i<texts.length;i++){
+   if(status[i] === "add"){
+     document.getElementById("contentDiv").innerHTML+="<div id='msgDivr'><h4 id='time'>" +getNotificationDateTime(dates[i])+ "</h4><p>" + texts[i] + "</p></div>";
+   }
+   if(status[i] === "take"){
+     document.getElementById("contentDiv").innerHTML+="<div id='msgDivl'><p>" + texts[i] + "</p><h4 id='time'>" +getNotificationDateTime(dates[i])+ "</h4></div>";
+   }
+}
+
+
+$("#send").click(function(){
+   var text = $("#input").val().trim();
+   $("#input").focus();
+   if(!(isNaN(parseInt(text)))){
+       scrollDown();
+       $("#input").val("");
+       checkInput();
+       //OPERATION STARTS HERE...//////////////
+       localStorage.logTextSavings +="--c&h--" + text;
+       localStorage.logDateSavings +="--c&h--" + getPresentDate();
+        if(Number(localStorage.blueORred) == 1 ){
+           document.getElementById("contentDiv").innerHTML+="<div id='msgDivr'><h4 id='time'>" +getNotificationDateTime(getPresentDate())+ "</h4><p>" + text + "</p></div>";
+           
+           localStorage.balanceSavings = Number(localStorage.balanceSavings) + parseInt(text);
+           notify2("+" + parseInt(text));
+           localStorage.logStatusSavings += "--c&h--add";
+        }
+        if(Number(localStorage.blueORred) == -1){  
+           document.getElementById("contentDiv").innerHTML+="<div id='msgDivl'><p>" + text + "</p><h4 id='time'>" +getNotificationDateTime(getPresentDate())+ "</h4></div>";
+           
+           localStorage.balanceSavings = Number(localStorage.balanceSavings) - parseInt(text);
+           notify2("-" + parseInt(text));
+           localStorage.logStatusSavings += "--c&h--take";
+        }
+       /////OPERATION ENDS HERE//////
+       notify("your current balance is " + localStorage.balanceSavings);
+   }
+   
+});
+
+
+function scrollDown(){setTimeout(function(){document.getElementById("contentDiv").scrollTop =  document.getElementById("contentDiv").scrollHeight;},150);}
+scrollDown();
+
+$("header #right").click(function(){
+   $("#options").show(200);
+   $("#fullscreendiv").fadeIn(50);
+});
+
+$("#fullscreendiv").click(function(){
+   $("#options").hide(200);
+   $("#fullscreendiv").fadeOut(50);
+});
+$("#options").click(function(){
+   $("#options").hide(200);
+   $("#fullscreendiv").fadeOut(50);
+});
+
+$("#contentDiv").scroll(function() {
+   if($("#contentDiv").scrollTop() + $("#contentDiv").height() == $("#contentDiv").height()) {
+      //top
+      $("header").css("box-shadow","0px 0px 0px rgba(0,0,0,0)");
+   }else{
+      $("header").css("box-shadow","0px 2px 3px rgba(0,0,0,0.08)");
+   }
+});
+//IMPORTANCE
+});
+</script>
+
+<script type="text/javascript" src="darkTheme.js"></script>
+</body>
+</html>
