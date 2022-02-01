@@ -21,7 +21,7 @@
 
 }
 .main .left .all{
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
     background:#ffffff22;
     margin:10px 0;
     border-radius: 10px;

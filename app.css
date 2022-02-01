@@ -2,23 +2,26 @@
     position: fixed;
     height: 600px;
     width: 900px;
-    background: #ffffff22;
+    background: #ffffff11;
     top: 50%;
     left: 50%;
     transform:translateX(-50%) translateY(-50%); 
     border-radius: 10px;
     opacity: 0;
     display: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
     overflow:hidden;
     transition: 0.3s linear transform,0.1s linear opacity,0.05s linear height,0.05s linear width;
     box-shadow: 0px 0px 10px 5px #00000022;
     border: 0px solid #dddddddd;
+    resize: both;
 }
 .appFrame iframe{
     height: calc(100% - 40px);
     width: 100%;
 }
+
+
 .appFrame .bar{
     height: 40px;
     width: 100%;

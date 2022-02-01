@@ -10,7 +10,7 @@ body .bottom{
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     background: #ffffff22;
     padding: 15px 15px;
     border-radius: 30px;
