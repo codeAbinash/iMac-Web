@@ -1,3 +1,3 @@
 # iMac Web
 ### Not completed Yet
-### [Open iMac](https://darkroseabinash.github.io/iMac-Web/)
+### [Open iMac](https://codeAbinash.github.io/iMac-Web/)
